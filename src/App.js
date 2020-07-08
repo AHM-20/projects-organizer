@@ -1,26 +1,18 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './components/navbar.component';
+import ProjectsList from './components/projects-list.component';
+import AddProject from './components/add-project.component';
+import EditProject from './components/edit-project.component ';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+	return (
+		<Router>
+			<NavBar />
+			<br />
+			<Route path="/" exact component={ProjectsList} />
+			<Route path="/add" component={AddProject} />
+			<Route path="/project/:id" component={EditProject} />
+		</Router>
+	);
 }
-
-export default App;
