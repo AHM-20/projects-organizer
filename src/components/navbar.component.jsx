@@ -30,9 +30,11 @@ export default function NavBar() {
 						<MenuIcon />
 					</IconButton>
 					<Typography variant="h6" className={classes.title}>
-						News
+						Projects
 					</Typography>
-					<Button color="inherit">Login</Button>
+					<Button color="inherit" href="/">
+						Home
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</div>

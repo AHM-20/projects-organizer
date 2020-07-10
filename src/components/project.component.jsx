@@ -6,10 +6,13 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 
 const Project = ({ project, deleteProject }) => (
 	<div>
-		<Card>
+		<Card style={{ backgroundColor: '#fafafa' }}>
 			<CardContent>
 				<Typography color="textSecondary" gutterBottom>
 					{project.projectPay}
@@ -24,7 +27,7 @@ const Project = ({ project, deleteProject }) => (
 					{'"a benevolent smile"'}
 				</Typography> */}
 			</CardContent>
-			<CardActions>
+			<CardActions style={{ justifyContent: 'flex-end' }}>
 				<Button
 					size="medium"
 					variant="contained"
@@ -37,6 +40,18 @@ const Project = ({ project, deleteProject }) => (
 				<Button href={'/project/' + project._id} size="medium" variant="contained">
 					Edit
 				</Button>
+				<IconButton href={'/project/' + project._id} aria-label="edit" color="primary">
+					<EditIcon />
+				</IconButton>
+				<IconButton
+					aria-label="delete"
+					color="secondary"
+					onClick={() => {
+						deleteProject(project._id);
+					}}
+				>
+					<DeleteIcon />
+				</IconButton>
 			</CardActions>
 		</Card>
 		<Divider variant="middle" />
