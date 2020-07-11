@@ -35,6 +35,9 @@ export default function NavBar() {
 					<Button color="inherit" href="/">
 						Home
 					</Button>
+					<Button color="inherit" href="/add">
+						New Project
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</div>

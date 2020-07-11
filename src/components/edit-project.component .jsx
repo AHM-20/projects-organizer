@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
+import Paper from '@material-ui/core/Paper';
 import axios from 'axios';
 import 'react-datepicker/dist/react-datepicker.css';
 import Container from '@material-ui/core/Container';
@@ -88,87 +89,89 @@ class EditProject extends Component {
 		return (
 			<React.Fragment>
 				<Container maxWidth="md">
-					<form onSubmit={this.onSubmit}>
-						<br />
-						<Typography variant="h6" gutterBottom>
-							Update Project
-						</Typography>
-						<br />
-						<Grid container spacing={3}>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									id="projectName"
-									name="projectName"
-									label="Project name"
-									value={this.state.projectName}
-									onChange={this.onChangeProjectName}
-									fullWidth
-									autoComplete="given-name"
-								/>
-							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									id="projectPay"
-									name="projectPay"
-									label="Project pay"
-									value={this.state.projectPay}
-									onChange={this.onChangeProjectCost}
-									fullWidth
-									autoComplete="family-name"
-								/>
-							</Grid>
+					<Paper elevation={6} style={{ padding: '20px 35px', borderRadius: '15px' }}>
+						<form onSubmit={this.onSubmit}>
+							<br />
+							<Typography variant="h6" gutterBottom>
+								Update Project
+							</Typography>
+							<br />
+							<Grid container spacing={3}>
+								<Grid item xs={12} sm={6}>
+									<TextField
+										required
+										id="projectName"
+										name="projectName"
+										label="Project name"
+										value={this.state.projectName}
+										onChange={this.onChangeProjectName}
+										fullWidth
+										autoComplete="given-name"
+									/>
+								</Grid>
+								<Grid item xs={12} sm={6}>
+									<TextField
+										required
+										id="projectPay"
+										name="projectPay"
+										label="Project pay"
+										value={this.state.projectPay}
+										onChange={this.onChangeProjectCost}
+										fullWidth
+										autoComplete="family-name"
+									/>
+								</Grid>
 
-							<Grid item xs={12} sm={6}>
-								<TextField
-									required
-									id="payments"
-									name="payments"
-									label="Payments"
-									value={this.state.payments}
-									onChange={this.onChangePayments}
-									fullWidth
-									autoComplete="shipping address-level2"
-								/>
+								<Grid item xs={12} sm={6}>
+									<TextField
+										required
+										id="payments"
+										name="payments"
+										label="Payments"
+										value={this.state.payments}
+										onChange={this.onChangePayments}
+										fullWidth
+										autoComplete="shipping address-level2"
+									/>
+								</Grid>
+								<Grid item xs={12} sm={6}>
+									<TextField
+										id="deadline"
+										type="date"
+										name="deadline"
+										label="Deadline"
+										value={this.state.deadline}
+										onChange={this.onChangeDeadline}
+										// onChange={(event) => {
+										// 	this.setState({ value: event.target.value });
+										// }}
+										InputLabelProps={{
+											shrink: true
+										}}
+										margin="none"
+										fullWidth
+									/>
+								</Grid>
+								<Grid item xs={12}>
+									<TextField
+										id="notes"
+										name="notes"
+										label="Notes"
+										value={this.state.notes}
+										onChange={this.onChangeNotes}
+										fullWidth
+										autoComplete="shipping address-line2"
+									/>
+								</Grid>
+								<Grid item xs={12}>
+									<br />
+									<Button type="submit" variant="contained" color="primary">
+										Submit
+									</Button>
+								</Grid>
 							</Grid>
-							<Grid item xs={12} sm={6}>
-								<TextField
-									id="deadline"
-									type="date"
-									name="deadline"
-									label="Deadline"
-									value={this.state.deadline}
-									onChange={this.onChangeDeadline}
-									// onChange={(event) => {
-									// 	this.setState({ value: event.target.value });
-									// }}
-									InputLabelProps={{
-										shrink: true
-									}}
-									margin="none"
-									fullWidth
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<TextField
-									id="notes"
-									name="notes"
-									label="Notes"
-									value={this.state.notes}
-									onChange={this.onChangeNotes}
-									fullWidth
-									autoComplete="shipping address-line2"
-								/>
-							</Grid>
-							<Grid item xs={12}>
-								<br />
-								<Button type="submit" variant="contained" color="primary">
-									Submit
-								</Button>
-							</Grid>
-						</Grid>
-					</form>
+						</form>
+					</Paper>
 				</Container>
 			</React.Fragment>
 		);
